@@ -8,6 +8,11 @@
         SET title = #{title}
         , description = #{description}
         , taskpoint = #{taskPoint}
-        , time = #{time}
     </insert>
+    <update id="updTask">
+        UPDATE task
+        SET title = #{title}
+        , time = current_timestamp()
+        , description = #{description}
+    </update>
 </mapper>

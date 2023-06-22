@@ -12,8 +12,5 @@ private final BadgeService service;
     public BadgeController(BadgeService service) {
         this.service = service;
     }
-    @PostMapping
-    public int insBadge(@RequestPart MultipartFile pic, @RequestBody BadgeInsDto dto){
-        return service.insPic(dto);
-    }
+
 }

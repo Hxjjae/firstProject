@@ -3,8 +3,7 @@ package com.green.firstproject.task.model;
 import lombok.Data;
 
 @Data
-public class TaskInsDto {
+public class TaskUpdDto {
     private String title;
     private String description;
-    private int taskPoint;
 }
