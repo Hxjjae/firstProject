@@ -1,5 +1,6 @@
 package com.green.firstproject.task;
 
+import com.green.firstproject.task.model.TaskInsDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -8,5 +9,10 @@ import org.springframework.stereotype.Service;
 @Service
 public class TaskService {
 
+    @Autowired
     private final TaskMapper mapper;
+
+    public int insTask(TaskInsDto dto) {
+        return mapper.insTask(dto);
+    }
 }

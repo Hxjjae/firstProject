@@ -3,10 +3,9 @@ package com.green.firstproject.task.model;
 import lombok.Data;
 
 @Data
-public class TaskEntity {
-    private Long itask;
+public class TaskInsDto {
     private String title;
     private String description;
-    private String time;
     private int taskPoint;
+    private String time;
 }

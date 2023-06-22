@@ -3,7 +3,19 @@
 <mapper namespace="com.green.firstproject.badge.BadgeMapper">
 
 
+    <insert id="insBadge">
+        Insert into Badge
+        (points)
+        values
+        (#{points})
+    </insert>
 
 
-
+    <update id="insPic">
+        Update
+        badge
+        set
+        pic = #{pic}
+        where ibadge = #{ibadge}
+    </update>
 </mapper>
