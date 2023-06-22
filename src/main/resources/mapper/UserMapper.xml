@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.green.firstproject.user.UserMapper">
+    <insert id="insUser" useGeneratedKeys="true" keyProperty="iuser">
+        insert into user
+        (name)
+        values
+        (#{name})
+    </insert>
+    <update id="upUser">
+        update user
+        set name = #{name}
+        where iuser = #{iuser}
+    </update>
+    <delete id="delUser">
+        delete from user
+        where iuser = #{iuser}
+    </delete>
+    <select id="totalPointUser">
+        select B.iuser, B.name, B.totalpoint, B.ibadge
+        ,C.taskpoint
+        from user_task A
+        inner join user B
+        on A.iuser = B.iuser
+        inner join task C
+        on A.itask = C.itask
+    </select>
+
+
+
+</mapper>
