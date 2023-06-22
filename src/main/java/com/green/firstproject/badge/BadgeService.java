@@ -19,6 +19,9 @@ public class BadgeService {
     public BadgeService(BadgeMapper mapper) {
         this.mapper = mapper;
     }
+    public int insBadge(BadgeInsDto dto){
+    return mapper.insBadge(dto);
+    }
     public int insPic(MultipartFile pic, BadgePicDto dto){
         String centerPath = String.format("user/%d", dto.getIbadge());
         String dicPath = String.format("%s/%s", fileDir, centerPath);

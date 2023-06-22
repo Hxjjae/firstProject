@@ -5,10 +5,17 @@
 
     <insert id="insBadge">
         Insert into Badge
-        (points,pic)
+        (points)
         values
-        (#{points},#{pic})
+        (#{points})
     </insert>
 
 
+    <update id="insPic">
+        Update
+        badge
+        set
+        pic = #{pic}
+        where ibadge = #{ibadge}
+    </update>
 </mapper>
