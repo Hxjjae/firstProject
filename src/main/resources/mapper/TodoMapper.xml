@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.green.firstproject.todo.TodoMapper">
+    <insert id="insTodo">
+        Insert into todo
+        (title,ctnt,isticker)
+        values
+        (#{title},#{ctnt},#{isticker})
+
+    </insert>
+
+    <update id="patchSticker">
+        update todo
+        set
+        isticker = #{isicker}
+        where itodo =#{itodo}
+    </update>
+</mapper>
