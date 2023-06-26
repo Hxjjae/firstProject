@@ -33,8 +33,7 @@ public class UserController {
         return service.delUser(entity);
     }
 
-    @GetMapping
-    public
+
 
 
 }
