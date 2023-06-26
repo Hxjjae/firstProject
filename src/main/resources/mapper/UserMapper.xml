@@ -7,11 +7,23 @@
         values
         (#{name})
     </insert>
-    <update id="upUser">
+    <update id="upNameUser">
         update user
         set name = #{name}
         where iuser = #{iuser}
     </update>
+    <update id="upObjectiveUser">
+        update user
+        set objective = #{objective}
+        where iuser = #{iuser}
+    </update>
+
+
+
+
+
+
+
     <delete id="delUser">
         delete from user
         where iuser = #{iuser}

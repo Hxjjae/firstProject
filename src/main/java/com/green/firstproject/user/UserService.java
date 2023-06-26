@@ -1,8 +1,6 @@
 package com.green.firstproject.user;
 
-import com.green.firstproject.user.model.UserEntity;
-import com.green.firstproject.user.model.UserInsDto;
-import com.green.firstproject.user.model.UserUpDto;
+import com.green.firstproject.user.model.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -23,12 +21,17 @@ public class UserService {
         return result;
 
     }
-    public  int upUser(UserUpDto dto) {
-        return mapper.upUser(dto);
+    public  int upNameUser(UserUpNameDto dto) {
+        return mapper.upNameUser(dto);
     }
 
-    public int delUser(UserEntity entity) {
-        return mapper.delUser(entity);
+
+    public int upObjectiveUser(UserUpObjectiveDto dto) {
+        return mapper.upObjectiveUser(dto);
+    }
+
+    public int delUser(UserDelDto dto) {
+        return mapper.delUser(dto);
     }
 
 
