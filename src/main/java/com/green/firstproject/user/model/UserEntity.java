@@ -6,6 +6,6 @@ import lombok.Data;
 public class UserEntity {
     private int iuser;
     private  String name;
-    private  int totalpoint;
-    private  int ibadge;
+    private  String mainPic;
+    private  String objective;
 }

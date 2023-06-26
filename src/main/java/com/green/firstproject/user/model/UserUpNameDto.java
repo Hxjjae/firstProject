@@ -3,7 +3,7 @@ package com.green.firstproject.user.model;
 import lombok.Data;
 
 @Data
-public class UserUpDto {
+public class UserUpNameDto {
     private int iuser;
     private String name;
 }
