@@ -16,15 +16,7 @@
         delete from user
         where iuser = #{iuser}
     </delete>
-    <select id="totalPointUser">
-        select B.iuser, B.name, B.totalpoint, B.ibadge
-        ,C.taskpoint
-        from user_task A
-        inner join user B
-        on A.iuser = B.iuser
-        inner join task C
-        on A.itask = C.itask
-    </select>
+
 
 
 

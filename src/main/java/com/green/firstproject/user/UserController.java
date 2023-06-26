@@ -4,6 +4,7 @@ import com.green.firstproject.user.model.UserEntity;
 import com.green.firstproject.user.model.UserInsDto;
 import com.green.firstproject.user.model.UserUpDto;
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/user")
 @RequiredArgsConstructor
+@Tag(name = "프로필 등록")
 public class UserController {
     private final UserService service;
 
