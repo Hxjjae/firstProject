@@ -2,6 +2,7 @@ package com.green.firstproject.sticker;
 
 import com.green.firstproject.sticker.model.StickerInsDto;
 import com.green.firstproject.sticker.model.StickerSelDto;
+import com.green.firstproject.sticker.model.StickerUpdDto;
 import com.green.firstproject.sticker.model.StickerVo;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -23,13 +24,19 @@ public class StickerController {
     @Autowired
     private final StickerService service;
 
-    @PostMapping(name = "/추가", consumes = {MediaType.MULTIPART_FORM_DATA_VALUE} )
+    @PostMapping
     @Operation(summary = "스티커 추가")
-    int postSticker(@RequestPart MultipartFile pic
+    int postSticker(@RequestBody StickerInsDto dto) {
+        return service.insSticker(dto);
+    }
+
+    @PatchMapping(name = "/추가", consumes = {MediaType.MULTIPART_FORM_DATA_VALUE} )
+    @Operation(summary = "스티커 수정")
+    int patchSticker(@RequestPart MultipartFile pic
                     , @RequestParam int level) {
-        StickerInsDto dto = new StickerInsDto();
+        StickerUpdDto dto = new StickerUpdDto();
         dto.setLevel(level);
-        return service.insSticker(pic,dto);
+        return service.updSticker(pic,dto);
     }
 
     @GetMapping

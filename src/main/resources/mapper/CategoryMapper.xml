@@ -5,6 +5,7 @@
         INSERT INTO category
         SET title = #{title}
     </insert>
+
     <select id="selCategory">
         SELECT title
         FROM category

@@ -2,6 +2,7 @@ package com.green.firstproject.sticker;
 
 import com.green.firstproject.sticker.model.StickerInsDto;
 import com.green.firstproject.sticker.model.StickerSelDto;
+import com.green.firstproject.sticker.model.StickerUpdDto;
 import com.green.firstproject.sticker.model.StickerVo;
 import com.green.firstproject.utils.CommonUtils;
 import com.green.firstproject.utils.FileUtils;
@@ -23,7 +24,11 @@ public class StickerService {
     @Value("D:/download/firstProject")
     private String fileDir;
 
-    int insSticker(MultipartFile pic, StickerInsDto dto) {
+    int insSticker(StickerInsDto dto) {
+        return mapper.insSticker(dto);
+    }
+
+    int updSticker(MultipartFile pic, StickerUpdDto dto) {
         String centerPath = String.format("sticker/%d", dto.getIsticker());
         String dicPath = String.format("%s/%s", fileDir, centerPath);
 
@@ -43,7 +48,7 @@ public class StickerService {
             return 0;
         }dto.setPic(savedFilePath);
         try {
-            int result = mapper.insSticker(dto);
+            int result = mapper.updSticker(dto);
             if (result == 0) {
                 throw new Exception("스티커 사진 등록 불가");
             }
