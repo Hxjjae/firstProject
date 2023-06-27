@@ -6,4 +6,8 @@
         SET level = #{level}
         , pic = #{pic}
     </insert>
+    <select id="selSticker">
+        SELECT * from sticker
+        ORDER BY level
+    </select>
 </mapper>

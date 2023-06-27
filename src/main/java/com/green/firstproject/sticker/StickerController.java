@@ -7,7 +7,9 @@ import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,17 +23,18 @@ public class StickerController {
     @Autowired
     private final StickerService service;
 
-    @PostMapping
+    @PostMapping(name = "/추가", consumes = {MediaType.MULTIPART_FORM_DATA_VALUE} )
     @Operation(summary = "스티커 추가")
-    int postSticker(@RequestBody StickerInsDto dto) {
-        return service.insSticker(dto);
+    int postSticker(@RequestPart MultipartFile pic
+                    , @RequestParam int level) {
+        StickerInsDto dto = new StickerInsDto();
+        dto.setLevel(level);
+        return service.insSticker(pic,dto);
     }
 
     @GetMapping
     @Operation(summary = "스티커 보기")
-    List<StickerVo> getSticker(@RequestParam StickerSelDto dto) {
-        service.selSticker(dto);
-        List<StickerVo> list = new ArrayList<>();
-        return list;
+    List<StickerVo> getSticker() {
+        return service.selSticker();
     }
 }
