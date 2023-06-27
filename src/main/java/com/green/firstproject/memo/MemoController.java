@@ -47,8 +47,8 @@ public class MemoController {
 
     @DeleteMapping
     @Operation(summary = "메모 삭제")
-    public int delMemo(@RequestBody MemoDelDto imemo) {
-        return service.delMemo(imemo);
+    public int delMemo(@RequestBody MemoDelDto dto) {
+        return service.delMemo(dto);
     }
 
 }

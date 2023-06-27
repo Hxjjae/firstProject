@@ -5,4 +5,5 @@ import lombok.Data;
 @Data
 public class MemoListOneDto {
     private int imemo;
+    private int iuser;
 }

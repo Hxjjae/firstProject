@@ -3,30 +3,35 @@
 <mapper namespace="com.green.firstproject.memo.MemoMapper">
     <insert id="insMemo" useGeneratedKeys="true" keyProperty="imemo">
        insert into memo
-        (title,ctnt)
+        (title,ctnt, iuser)
         values
-        (#{title},#{ctnt})
+        (#{title},#{ctnt},#{iuser})
     </insert>
     <update id="upTileMemo">
         update memo
         set title = #{title}
+        ,updated_at = current_timestamp
         where imemo = #{imemo}
+        and iuser = #{iuser}
     </update>
 
     <update id="upCtntMemo">
         update memo
         set ctnt = #{ctnt}
+        ,updated_at = current_timestamp
         where imemo = #{imemo}
+        and iuser = #{iuser}
     </update>
 
     <select id="selMemo" resultType="MemoListVo">
         select title, ctnt
         from memo
         where imemo = #{imemo}
+        and iuser = #{iuser}
     </select>
 
     <select id="selAllMemo">
-        select imemo,title,ctnt
+        select imemo,iuser,title,ctnt
         from memo
     </select>
 
@@ -34,6 +39,7 @@
         update memo
         set del_yn = 1
         where imemo = #{imemo}
+        and iuser = #{iuser}
     </update>
 
 </mapper>
