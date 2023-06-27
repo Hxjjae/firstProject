@@ -3,9 +3,9 @@ package com.green.firstproject.todo.model;
 import lombok.Data;
 
 @Data
-public class TodoInsDto {
-    private String ctnt;
+public class TodoPutDto {
+    private long itodo;
     private String title;
-    private long isticker;
+    private String ctnt;
     private long icategory;
 }

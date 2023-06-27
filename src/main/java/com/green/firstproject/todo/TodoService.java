@@ -1,7 +1,6 @@
 package com.green.firstproject.todo;
 
-import com.green.firstproject.todo.model.TodoInsDto;
-import com.green.firstproject.todo.model.TodoPacthDto;
+import com.green.firstproject.todo.model.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,5 +18,13 @@ public class TodoService {
     }
     public int patchSticker(TodoPacthDto dto){
     return mapper.patchSticker(dto);
+    }
+
+    public int delTodo(TodoDelDto dto){
+    return mapper.delTodo(dto);
+    }
+
+    public int updTodo(TodoPutDto dto){
+    return mapper.updTodo(dto);
     }
 }

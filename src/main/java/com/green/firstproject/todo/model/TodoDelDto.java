@@ -3,8 +3,7 @@ package com.green.firstproject.todo.model;
 import lombok.Data;
 
 @Data
-public class TodoPacthDto {
+public class TodoDelDto {
     private long itodo;
-    private long isticker;
 
 }
