@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.green.firstproject.todo.TodoMapper">
+    <insert id="insTodo">
+        Insert into todo A
+        inner join category B
+        (title,ctnt,isticker,B.icategory)
+        values
+        (#{title},#{ctnt},#{isticker},#{icategory})
+
+    </insert>
+
+    <update id="patchSticker">
+        update todo
+        set
+        isticker = #{isicker}
+        where itodo =#{itodo}
+    </update>
+    <update id="delTodo">
+        update todo
+        set
+        del_yn = 1
+        where itodo = #{itodo}
+    </update>
+    <update id = "updTodo">
+        update todo
+        set
+        title = #{title},
+        ctnt = #{ctnt},
+        icategory = #{icategory}
+        where itodo = #{itodo}
+    </update>
+
+    <select id="selTodo">
+        Select
+        from
+
+    </select>
+</mapper>
