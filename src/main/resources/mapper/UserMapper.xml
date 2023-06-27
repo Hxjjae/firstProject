@@ -7,27 +7,30 @@
         values
         (#{name})
     </insert>
-    <update id="upNameUser">
+
+
+    <update id="upUserPic">
+        update user
+        set main_pic = #{mainPic}
+        where iuser = #{iuser}
+    </update>
+    <update id="upAllUser">
         update user
         set name = #{name}
+        , objective = #{objective}
+
         where iuser = #{iuser}
     </update>
-    <update id="upObjectiveUser">
-        update user
-        set objective = #{objective}
+    <select id="selUser" resultType="UserListVo">
+        select name,main_pic mainPic , objective
+        from user
         where iuser = #{iuser}
-    </update>
+    </select>
 
-
-
-
-
-
-
-    <delete id="delUser">
-        delete from user
-        where iuser = #{iuser}
-    </delete>
+    <select id="selAllUser">
+        select iuser,name, main_pic mainPic, objective
+        from user
+    </select>
 
 
 

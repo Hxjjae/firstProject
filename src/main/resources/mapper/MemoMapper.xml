@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.green.firstproject.memo.MemoMapper">
+    <insert id="insMemo" useGeneratedKeys="true" keyProperty="imemo">
+       insert into memo
+        (title,ctnt)
+        values
+        (#{title},#{ctnt})
+    </insert>
+    <update id="upTileMemo">
+        update memo
+        set title = #{title}
+        where imemo = #{imemo}
+    </update>
+
+    <update id="upCtntMemo">
+        update memo
+        set ctnt = #{ctnt}
+        where imemo = #{imemo}
+    </update>
+
+    <select id="selMemo" resultType="MemoListVo">
+        select title, ctnt
+        from memo
+        where imemo = #{imemo}
+    </select>
+
+    <select id="selAllMemo">
+        select imemo,title,ctnt
+        from memo
+    </select>
+
+    <update id="delMemo">
+        update memo
+        set del_yn = 1
+        where imemo = #{imemo}
+    </update>
+
+</mapper>
