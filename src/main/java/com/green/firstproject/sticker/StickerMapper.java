@@ -10,5 +10,5 @@ import java.util.List;
 @Mapper
 public interface StickerMapper {
     int insSticker(StickerInsDto dto);
-    List<StickerVo> selSticker(StickerSelDto dto);
+    List<StickerVo> selSticker();
 }
