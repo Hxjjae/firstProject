@@ -8,4 +8,5 @@ public class TodoInsDto {
     private String title;
     private long isticker;
     private long icategory;
+    private long iuser;
 }

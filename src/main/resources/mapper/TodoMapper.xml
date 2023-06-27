@@ -12,13 +12,15 @@
     <update id="patchSticker">
         update todo
         set
-        isticker = #{isicker}
+        isticker = #{isticker}
+        ,updated_at = current_timestamp
         where itodo =#{itodo}
     </update>
     <update id="delTodo">
         update todo
-        set
-        del_yn = 1
+        set del_yn = case
+        when del_yn = 0 then 1
+        end
         where itodo = #{itodo}
     </update>
     <update id = "updTodo">
