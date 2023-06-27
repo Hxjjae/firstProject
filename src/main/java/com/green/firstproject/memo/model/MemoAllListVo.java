@@ -7,6 +7,7 @@ import lombok.Getter;
 @AllArgsConstructor
 public class MemoAllListVo {
     private int imemo;
+    private int iuser;
     private String title;
     private String ctnt;
 }

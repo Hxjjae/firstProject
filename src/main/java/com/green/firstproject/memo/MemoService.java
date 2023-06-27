@@ -16,6 +16,7 @@ public class MemoService {
         MemoEntity entity = new MemoEntity();
         entity.setCtnt(dto.getCtnt());
         entity.setTitle(dto.getTitle());
+        entity.setIuser(dto.getIuser());
 
         int result = mapper.insMemo(entity);
         if (result == 1) {
@@ -33,6 +34,7 @@ public class MemoService {
 
     public List<MemoListVo> selMemo(MemoListOneDto dto) {
         dto.setImemo(dto.getImemo());
+        dto.setIuser(dto.getIuser());
         return mapper.selMemo(dto);
     }
 
@@ -41,7 +43,7 @@ public class MemoService {
     }
 
     public int delMemo(MemoDelDto dto) {
-        dto.setImemo(dto.getImemo());
+
         return mapper.delMemo(dto);
     }
 }
