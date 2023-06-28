@@ -21,7 +21,7 @@ public class UserController {
 
 
     @PostMapping
-    @Operation(summary = "프로필 이름등록", description = "name : 이름<br>")
+    @Operation(summary = "프로필 이름등록", description = "name : 이름<br>"+"목표와 사진은 기본적으로 null값")
     public int postUser(@RequestBody UserInsDto dto) {
         return service.insUser(dto);
     }
