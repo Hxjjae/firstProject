@@ -3,8 +3,8 @@
 <mapper namespace="com.green.firstproject.timer.TimerMapper">
     <insert id="insTimer">
         INSERT INTO timer
-        (dead_line, study_line, iuser)
+        (study_line, iuser)
         VALUES
-        (#{deadLine}, #{studyLine}, #{iuser})
+        (#{studyLine}, #{iuser})
     </insert>
 </mapper>
