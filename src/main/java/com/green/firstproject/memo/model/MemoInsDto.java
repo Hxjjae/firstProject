@@ -6,4 +6,5 @@ import lombok.Data;
 public class MemoInsDto {
     private String title;
     private String ctnt;
+    private int iuser;
 }

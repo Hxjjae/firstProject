@@ -2,24 +2,25 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.green.firstproject.todo.TodoMapper">
     <insert id="insTodo">
-        Insert into todo A
-        inner join category B
-        (title,ctnt,isticker,B.icategory)
+        Insert into todo
+        (title,ctnt,isticker,icategory,iuser)
         values
-        (#{title},#{ctnt},#{isticker},#{icategory})
+        (#{title},#{ctnt},#{isticker},#{icategory},#{iuser})
 
     </insert>
 
     <update id="patchSticker">
         update todo
         set
-        isticker = #{isicker}
+        isticker = #{isticker}
+        ,updated_at = current_timestamp
         where itodo =#{itodo}
     </update>
     <update id="delTodo">
         update todo
-        set
-        del_yn = 1
+        set del_yn = case
+        when del_yn = 0 then 1
+        end
         where itodo = #{itodo}
     </update>
     <update id = "updTodo">
@@ -31,9 +32,22 @@
         where itodo = #{itodo}
     </update>
 
-    <select id="selTodo">
-        Select
-        from
+    <select id="selUserTodo">
+        SELECT * FROM
+        todo A
+        INNER JOIN user B
+        ON A.iuser = B.iuser
+        WHERE A.iuser = #{iuser};
 
     </select>
+
+    <select id="selTodo" resultType="SelVo">
+        SELECT *FROM todo
+        WHERE itodo = #{itodo};
+    </select>
+
+    <select id="selAllTodo" resultType="SelAllVo">
+        Select *from todo;
+    </select>
+
 </mapper>
