@@ -14,4 +14,5 @@ int updTodo(TodoPutDto dto);
 List<SelVo> selTodo(TodoSelDto dto);
 List<SelUserVo> selUserTodo(SelUserDto dto);
 List<SelAllVo> selAllTodo();
+List<SelVo> UserCategorySel(SelCategoryDto dto);
 }

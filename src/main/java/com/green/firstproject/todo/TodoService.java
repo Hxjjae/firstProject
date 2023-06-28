@@ -23,7 +23,9 @@ public class TodoService {
     }
 
     public int delTodo(TodoDelDto dto){
-    return mapper.delTodo(dto);
+    TodoEntity entity = new TodoEntity();
+    entity.setItodo(dto.getItodo());
+        return mapper.delTodo(dto);
     }
 
     public int updTodo(TodoPutDto dto){
@@ -40,5 +42,8 @@ public class TodoService {
     }
     public List<SelAllVo> selAllTodo(){
     return mapper.selAllTodo();
+    }
+    public List<SelVo> UserCategorySel(SelCategoryDto dto){
+        return mapper.UserCategorySel(dto);
     }
 }
