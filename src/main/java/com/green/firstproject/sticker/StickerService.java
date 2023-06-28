@@ -21,7 +21,7 @@ public class StickerService {
 
     private final StickerMapper mapper;
     private final CommonUtils commonUtils;
-    @Value("D:/download/firstProject")
+    @Value("${file.dir}")
     private String fileDir;
 
     int insSticker(StickerInsDto dto) {
@@ -61,5 +61,9 @@ public class StickerService {
 
     List<StickerVo> selSticker() {
         return mapper.selSticker();
+    }
+
+    int selStickerById(StickerSelDto dto) {
+        return mapper.selStickerById(dto);
     }
 }

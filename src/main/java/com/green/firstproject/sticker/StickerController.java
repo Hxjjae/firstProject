@@ -44,4 +44,13 @@ public class StickerController {
     List<StickerVo> getSticker() {
         return service.selSticker();
     }
+
+    @GetMapping("/pic")
+    @Operation(summary = "스티커 한개 보기")
+    int getStickerById(@RequestParam int isticker, @RequestParam int level) {
+        StickerSelDto dto = new StickerSelDto();
+        dto.setIsticker(isticker);
+        dto.setLevel(level);
+        return service.selStickerById(dto);
+    }
 }

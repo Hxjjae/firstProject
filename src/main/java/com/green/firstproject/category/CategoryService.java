@@ -13,7 +13,6 @@ import java.util.List;
 @RequiredArgsConstructor
 public class CategoryService {
 
-    @Autowired
     private final CategoryMapper mapper;
 
     public int insCategory(CategoryInsDto dto) {

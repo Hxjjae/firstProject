@@ -13,4 +13,5 @@ public interface StickerMapper {
     int insSticker(StickerInsDto dto);
     int updSticker(StickerUpdDto dto);
     List<StickerVo> selSticker();
+    int selStickerById(StickerSelDto dto);
 }

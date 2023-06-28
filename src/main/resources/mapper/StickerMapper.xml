@@ -11,4 +11,10 @@
         SELECT * from sticker
         ORDER BY level
     </select>
+
+    <select id="selStickerById">
+        SElECT * from sticker
+        WHERE level = #{level}
+        and isticker = #{isticker}
+    </select>
 </mapper>
