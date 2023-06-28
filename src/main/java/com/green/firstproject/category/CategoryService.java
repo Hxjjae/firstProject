@@ -1,10 +1,8 @@
 package com.green.firstproject.category;
 
 import com.green.firstproject.category.model.CategoryInsDto;
-import com.green.firstproject.category.model.CategorySelDto;
 import com.green.firstproject.category.model.CategoryVo;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
