@@ -1,13 +1,12 @@
 package com.green.firstproject.todo;
 
-import com.green.firstproject.todo.model.TodoDelDto;
-import com.green.firstproject.todo.model.TodoInsDto;
-import com.green.firstproject.todo.model.TodoPacthDto;
-import com.green.firstproject.todo.model.TodoPutDto;
+import com.green.firstproject.todo.model.*;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/todo")
@@ -44,4 +43,19 @@ public class TodoCotnroller {
     return service.updTodo(dto);
     }
 
+    @GetMapping
+    @Operation(summary = "게시글 하나보기")
+    public List<SelVo> selTodo(TodoSelDto dto){
+    return service.selTodo(dto);
+    }
+    @GetMapping("/userboard")
+    @Operation(summary = "유저가 쓴글 보기")
+    public List<SelUserVo> selUserTodo(SelUserDto dto){
+    return service.selUserTodo(dto);
+    }
+    @GetMapping("/allbaord")
+    @Operation(summary = "전체 글 보기")
+    public List<SelAllVo> selAllTodo(){
+    return service.selAllTodo();
+    }
 }

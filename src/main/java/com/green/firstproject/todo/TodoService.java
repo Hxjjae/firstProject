@@ -4,6 +4,8 @@ import com.green.firstproject.todo.model.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class TodoService {
     private final TodoMapper mapper;
@@ -26,5 +28,17 @@ public class TodoService {
 
     public int updTodo(TodoPutDto dto){
     return mapper.updTodo(dto);
+    }
+
+    public List<SelVo> selTodo(TodoSelDto dto){
+    dto.setItodo(dto.getItodo());
+    return mapper.selTodo(dto);
+    }
+    public List<SelUserVo> selUserTodo(SelUserDto dto){
+    dto.setIuser(dto.getIuser());
+            return mapper.selUserTodo(dto);
+    }
+    public List<SelAllVo> selAllTodo(){
+    return mapper.selAllTodo();
     }
 }

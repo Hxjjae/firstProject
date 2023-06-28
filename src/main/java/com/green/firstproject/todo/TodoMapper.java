@@ -1,10 +1,9 @@
 package com.green.firstproject.todo;
 
-import com.green.firstproject.todo.model.TodoDelDto;
-import com.green.firstproject.todo.model.TodoInsDto;
-import com.green.firstproject.todo.model.TodoPacthDto;
-import com.green.firstproject.todo.model.TodoPutDto;
+import com.green.firstproject.todo.model.*;
 import org.apache.ibatis.annotations.Mapper;
+
+import java.util.List;
 
 @Mapper
 public interface TodoMapper {
@@ -12,4 +11,7 @@ int insTodo(TodoInsDto dto);
 int patchSticker(TodoPacthDto dto);
 int delTodo(TodoDelDto dto);
 int updTodo(TodoPutDto dto);
+List<SelVo> selTodo(TodoSelDto dto);
+List<SelUserVo> selUserTodo(SelUserDto dto);
+List<SelAllVo> selAllTodo();
 }

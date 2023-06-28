@@ -1,9 +1,11 @@
 package com.green.firstproject.todo.model;
 
-import lombok.Data;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
 
-@Data
-public class TodoEntity {
+@AllArgsConstructor
+@Getter
+public class SelAllVo {
     private long itodo;
     private String title;
     private String ctnt;

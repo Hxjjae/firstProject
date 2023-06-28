@@ -32,12 +32,22 @@
         where itodo = #{itodo}
     </update>
 
-    <select id="selTodo">
-        SELECT A.iuser FROM
-        user A
-        INNER JOIN todo B
+    <select id="selUserTodo">
+        SELECT * FROM
+        todo A
+        INNER JOIN user B
         ON A.iuser = B.iuser
-        ORDER BY updated_at desc;
+        WHERE A.iuser = #{iuser};
 
     </select>
+
+    <select id="selTodo" resultType="SelVo">
+        SELECT *FROM todo
+        WHERE itodo = #{itodo};
+    </select>
+
+    <select id="selAllTodo" resultType="SelAllVo">
+        Select *from todo;
+    </select>
+
 </mapper>
