@@ -26,3 +26,5 @@ springdoc:
 file:
   dir: D:/download/project
 
+server:
+  port: 5008
