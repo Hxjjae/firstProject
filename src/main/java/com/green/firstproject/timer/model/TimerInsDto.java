@@ -6,4 +6,5 @@ import lombok.Data;
 public class TimerInsDto {
     private String studyLine;
     private int iuser;
+    private int icategory;
 }

@@ -20,6 +20,7 @@
         update todo
         set del_yn = case
         when del_yn = 0 then 1
+        when del_yn = 1 then 0
         end
         where itodo = #{itodo}
     </update>
@@ -48,6 +49,11 @@
 
     <select id="selAllTodo" resultType="SelAllVo">
         Select *from todo;
+    </select>
+
+    <select id="UserCategorySel">
+        SELECT *FROM todo
+        WHERE icategory =#{icategory} and iuser = #{iuser};
     </select>
 
 </mapper>
