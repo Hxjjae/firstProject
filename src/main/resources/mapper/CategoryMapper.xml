@@ -10,4 +10,10 @@
         SELECT title
         FROM category
     </select>
+
+    <select id="selCategoryById">
+        SELECT *
+        from category
+        where icategory = #{icategory}
+    </select>
 </mapper>

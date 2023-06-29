@@ -25,10 +25,17 @@ public class CategoryController {
         return service.insCategory(dto);
     }
 
-    @GetMapping
+    @GetMapping("/allcategory")
     @Operation(summary = "카테고리 보기")
     public List<CategoryVo> getCategory() {
         return service.selCategory();
+    }
+    @GetMapping
+    @Operation(summary = "카테고리 한개 보기")
+    public CategoryVo getCategoryById(@RequestParam int icategory) {
+        CategorySelDto dto = new CategorySelDto();
+        dto.setIcategory(icategory);
+        return service.selCategoryById(dto);
     }
 }
 
