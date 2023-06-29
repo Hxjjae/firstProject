@@ -56,7 +56,7 @@ public class TodoCotnroller {
     return service.selUserTodo(dto);
     }
 
-    @GetMapping("/allbaord")
+    @GetMapping("/allboard")
     @Operation(summary = "전체 글 보기")
     public List<SelAllVo> selAllTodo(){
     return service.selAllTodo();
