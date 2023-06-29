@@ -37,6 +37,7 @@ public class TodoCotnroller {
     dto.setItodo(itodo);
     return service.delTodo(dto);
     }
+
     @PutMapping
     @Operation(summary = "게시글 수정")
     public int updTodo(@RequestBody TodoPutDto dto){
@@ -48,14 +49,25 @@ public class TodoCotnroller {
     public List<SelVo> selTodo(TodoSelDto dto){
     return service.selTodo(dto);
     }
+
     @GetMapping("/userboard")
     @Operation(summary = "유저가 쓴글 보기")
     public List<SelUserVo> selUserTodo(SelUserDto dto){
     return service.selUserTodo(dto);
     }
+
     @GetMapping("/allbaord")
     @Operation(summary = "전체 글 보기")
     public List<SelAllVo> selAllTodo(){
     return service.selAllTodo();
+    }
+    @GetMapping("/category")
+    @Operation(summary = "카테고리별 쓴글 보기")
+    public List<SelVo> UserCategorySel(@RequestParam int icategory, @RequestParam int iuser){
+
+    SelCategoryDto dto = new SelCategoryDto();
+    dto.setIcategory(icategory);
+    dto.setIuser(iuser);
+    return service.UserCategorySel(dto);
     }
 }
