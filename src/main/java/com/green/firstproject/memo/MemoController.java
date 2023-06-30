@@ -16,25 +16,25 @@ public class MemoController {
     private final MemoService service;
 
     @PostMapping
-    @Operation(summary = "메모장 타이틀, 내용 등록")
+    @Operation(summary = "메모장 타이틀, 내용 등록", description = "title : 제목<br>"+"ctnt : 내용<br>"+"iuser : 해당 유저 pk값")
     public int postMemo(@RequestBody MemoInsDto dto) {
         return service.insMemo(dto);
     }
 
     @PatchMapping("/title")
-    @Operation(summary = "메모장 타이틀 수정" ,description = "imemo : 메모장 PK값")
+    @Operation(summary = "메모장 타이틀 수정" ,description = "imemo : 메모장 PK값<br>"+"iuser : 해당 유저 pk값<br>"+"title : 제목")
     public int patchTileMemo(@RequestBody MemoUpTitleDto dto) {
         return service.upTileMemo(dto);
     }
 
     @PatchMapping("/ctnt")
-    @Operation(summary = "메모장 내용 수정",description = "imemo : 메모장 PK값")
+    @Operation(summary = "메모장 내용 수정",description = "imemo : 메모장 PK값<br>"+"iuser : 해당 유저 pk값<br>"+"ctnt : 내용")
     public int patchCtntMemo(@RequestBody MemoUpCtntDto dto) {
         return service.upCtntMemo(dto);
     }
 
     @GetMapping
-    @Operation(summary = "메모 하나씩 보기")
+    @Operation(summary = "메모 하나씩 보기",description = "imemo : 메모장 pk값<br>"+"iuser : 해당 유저 pk값")
     public List<MemoListVo> selMemo(MemoListOneDto dto) {
         return service.selMemo(dto);
     }
@@ -46,7 +46,7 @@ public class MemoController {
     }
 
     @DeleteMapping
-    @Operation(summary = "메모 삭제")
+    @Operation(summary = "메모 삭제",description = "imemo : 메모장 pk값<br>"+"iuser : 해당 유저 pk값")
     public int delMemo(@RequestBody MemoDelDto dto) {
         return service.delMemo(dto);
     }

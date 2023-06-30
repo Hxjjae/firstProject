@@ -39,7 +39,7 @@ public class UserController {
 
 
     @PutMapping(value = "/profile")
-    @Operation(summary = "프로필 이름, 목표 수정",description = "name : 이름<br>"+"ovjective : 목표")
+    @Operation(summary = "프로필 이름, 목표 수정",description = "name : 이름<br>"+"ovjective : 목표<br>"+"iuser : 유저 pk값")
     public int allPutUser(@RequestBody UserAllDto dto) {
 
         return service.upAllUser(dto);
@@ -48,7 +48,7 @@ public class UserController {
 
 
     @GetMapping
-    @Operation(summary = "유저 프로필 리스트 하나씩 확인")
+    @Operation(summary = "유저 프로필 리스트 하나씩 확인" ,description = "iuser : 유저 pk값")
     public List<UserListVo> getUser(UserListOneDto dto) {
         return service.selUser(dto);
     }
