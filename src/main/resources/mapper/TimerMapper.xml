@@ -7,4 +7,18 @@
         VALUES
         (#{studyLine}, #{iuser})
     </insert>
+
+    <update id="updTimer">
+        <![CDATA[
+            UPDATE timer
+            SET study_line = #{studyLine}
+            , isticker = CASE WHEN #{studyLine} <= 40 THEN 1
+            WHEN #{studyLine} <= 80 THEN 2
+            WHEN #{studyLine} <= 120 THEN 3
+            WHEN #{studyLine} <= 160 THEN 4
+            ELSE 5 END
+            WHERE iuser = #{iuser}
+            AND itimer = #{itimer}
+        ]]>
+    </update>
 </mapper>
