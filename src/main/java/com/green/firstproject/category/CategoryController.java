@@ -31,7 +31,8 @@ public class CategoryController {
         return service.selCategory();
     }
     @GetMapping
-    @Operation(summary = "카테고리 한개 보기")
+    @Operation(summary = "카테고리 한개 보기", description = "" +
+            "icategory : category 키값")
     public CategoryVo getCategoryById(@RequestParam int icategory) {
         CategorySelDto dto = new CategorySelDto();
         dto.setIcategory(icategory);
