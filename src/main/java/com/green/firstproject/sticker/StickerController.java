@@ -16,7 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RestController
-@RequestMapping("/sticker")
+@RequestMapping("/api/sticker")
 @RequiredArgsConstructor
 @Tag(name = "스티커")
 public class StickerController {

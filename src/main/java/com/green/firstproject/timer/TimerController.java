@@ -8,7 +8,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/timer")
+@RequestMapping("/api/timer")
 @Tag(name = "타이머")
 @RequiredArgsConstructor
 

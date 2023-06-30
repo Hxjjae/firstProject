@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/todo")
+@RequestMapping("/api/todo")
 @Tag(name = "게시글 작성")
 public class TodoCotnroller {
 

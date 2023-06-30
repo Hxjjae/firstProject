@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/memo")
+@RequestMapping("/api/memo")
 @RequiredArgsConstructor
 @Tag(name = "메모장")
 public class MemoController {
