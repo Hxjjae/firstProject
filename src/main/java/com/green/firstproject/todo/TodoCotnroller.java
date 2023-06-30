@@ -19,19 +19,19 @@ public class TodoCotnroller {
         this.service = service;
     }
     @PostMapping
-    @Operation(summary = "게시글 작성")
+    @Operation(summary = "게시글 작성 ", description = "name : 이름<br>"+"icategory : 카테고리 외래키값<br>" +"iuser 유저 외래키값<br>"+"ctnt: 내용<br>"+"title: 제목<br>")
     public int insTodo(@RequestBody TodoInsDto dto){
     return service.insTodo(dto);
     }
 
     @PatchMapping
-    @Operation(summary = "스티커 수정")
+    @Operation(summary = "스티커 수정", description = "itodo : 게시판pk값")
     public int patchSticker(@RequestBody TodoPacthDto dto){
     return service.patchSticker(dto);
     }
 
     @DeleteMapping
-    @Operation(summary = "글 삭제")
+    @Operation(summary = "글 삭제", description = "itodo : 게시판 pk값")
     public int delTodo(@RequestParam int itodo){
     TodoDelDto dto = new TodoDelDto();
     dto.setItodo(itodo);
@@ -39,19 +39,19 @@ public class TodoCotnroller {
     }
 
     @PutMapping
-    @Operation(summary = "게시글 수정")
+    @Operation(summary = "게시글 수정", description = "itodo : 게시판 pk값" +"icategory: 카테고리 외래키값")
     public int updTodo(@RequestBody TodoPutDto dto){
     return service.updTodo(dto);
     }
 
     @GetMapping
-    @Operation(summary = "게시글 하나보기")
+    @Operation(summary = "게시글 하나보기",description = "itodo: 게시판 pk값")
     public List<SelVo> selTodo(TodoSelDto dto){
     return service.selTodo(dto);
     }
 
     @GetMapping("/userboard")
-    @Operation(summary = "유저가 쓴글 보기")
+    @Operation(summary = "유저가 쓴글 보기",description = "iuser : 유저의 기본키 todo에서는 외래키")
     public List<SelUserVo> selUserTodo(SelUserDto dto){
     return service.selUserTodo(dto);
     }
@@ -62,7 +62,7 @@ public class TodoCotnroller {
     return service.selAllTodo();
     }
     @GetMapping("/category")
-    @Operation(summary = "카테고리별 쓴글 보기")
+    @Operation(summary = "카테고리별 쓴글 보기",description = "icategory : 카테고리의 외래키<br>"+"iuser : user의 pk값 여기서는 외래키")
     public List<SelVo> UserCategorySel(@RequestParam int icategory, @RequestParam int iuser){
 
     SelCategoryDto dto = new SelCategoryDto();
