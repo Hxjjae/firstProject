@@ -38,35 +38,33 @@ public class UserService {
         String centerPath = String.format("user/%d", dto.getIuser());
         String dicPath = String.format("%s/%s", fileDir, centerPath);
 
-
-        File dic = new File(dicPath); // 폴더 생성 여부 확인 및 생성, 삭제 수행
-        if (!dic.exists()){//폴더가 존재하지 않는 경우
-            dic.mkdirs(); //생성 수행
+        File dic = new File(dicPath);
+        if(!dic.exists()) {
+            dic.mkdirs();
         }
+
         String originFileName = pic.getOriginalFilename();
         String savedFileName = FileUtils.makeRandomFileNm(originFileName);
         String savedFilePath = String.format("%s/%s", centerPath, savedFileName);
-        String targetPath    = String.format("%s/%s", fileDir, savedFileName);
+        String targetPath = String.format("%s/%s", fileDir, savedFilePath);
         File target = new File(targetPath);
         try {
             pic.transferTo(target);
-
-        }catch (Exception e){
+        } catch (Exception e) {
             return 0;
-        }
-        dto.setMainPic((savedFilePath));
+        }dto.setMainPic(savedFilePath);
         try {
             int result = mapper.upUserPic(dto);
-            if (result == 0){
-                throw new Exception("프로필 사진을 등록할 수 없습니다.");
+            if (result == 0) {
+                throw new Exception("스티커 사진 등록 불가");
             }
-        }catch (Exception e){
-            //파일 삭제
+        } catch (Exception e) {
             target.delete();
             return 0;
         }
         return 1;
     }
+
 
 
     public int upAllUser(UserAllDto dto) {
