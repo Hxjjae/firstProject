@@ -19,7 +19,7 @@ public class EmailController {
     @PostMapping("/send-mail")
     public ResponseEntity sendMail(@RequestBody EmailPostDto dto) {
         EmailMessage emailMessage = EmailMessage.builder()
-                .to("jhj02201@gmail.com")
+                .to(dto.getEmail())
                 .subject("스터디 플래너에서 보내드립니다.")
                 .message("오늘의 공부내용을 작성해주세요.")
                 .build();
