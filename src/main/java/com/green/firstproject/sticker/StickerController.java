@@ -34,7 +34,7 @@ public class StickerController {
 
     @PatchMapping(name = "/추가", consumes = {MediaType.MULTIPART_FORM_DATA_VALUE} )
     @Operation(summary = "스티커 수정", description = "" +
-            "level : 스티커 레벨<br>" +
+            "isticker : 스티커 키값<br>" +
             "pic : 스티커 사진")
     int patchSticker(@RequestPart MultipartFile pic
                     , @RequestParam int isticker) {
