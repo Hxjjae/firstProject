@@ -9,11 +9,11 @@ import java.util.List;
 public interface MemoMapper {
     int insMemo(MemoEntity entity);
 
-    int upTileMemo(MemoUpTitleDto dto);
+    int upAllMemo(MemoUpAllDto dto);
 
-    int upCtntMemo(MemoUpCtntDto dto);
 
-    List<MemoListVo> selMemo(MemoListOneDto dto); //메모 하나씩 보기
+
+
 
     List<MemoAllListVo> selAllMemo(); // 모든 메모 보기
 

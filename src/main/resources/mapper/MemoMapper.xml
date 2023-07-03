@@ -7,21 +7,16 @@
         values
         (#{title},#{ctnt},#{iuser})
     </insert>
-    <update id="upTileMemo">
+    <update id="upAllMemo">
         update memo
-        set title = #{title}
-        ,updated_at = current_timestamp
+        set title = #{title},
+        ctnt = #{ctnt},
+        updated_at = current_timestamp
         where imemo = #{imemo}
         and iuser = #{iuser}
     </update>
 
-    <update id="upCtntMemo">
-        update memo
-        set ctnt = #{ctnt}
-        ,updated_at = current_timestamp
-        where imemo = #{imemo}
-        and iuser = #{iuser}
-    </update>
+
 
     <select id="selMemo" resultType="MemoListVo">
         select title, ctnt
@@ -31,15 +26,17 @@
     </select>
 
     <select id="selAllMemo">
-        select imemo,iuser,title,ctnt
+        select imemo,iuser,title,ctnt,created_at,updated_at
         from memo
     </select>
 
     <update id="delMemo">
         update memo
-        set del_yn = 1
+        set del_yn = case
+        when del_yn = 0 then 1
+        when del_yn = 1 then 0
+        end
         where imemo = #{imemo}
-        and iuser = #{iuser}
     </update>
 
 </mapper>

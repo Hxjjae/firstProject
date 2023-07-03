@@ -10,4 +10,6 @@ public class MemoAllListVo {
     private int iuser;
     private String title;
     private String ctnt;
+    private String createdAt;
+    private String updatedAt;
 }
