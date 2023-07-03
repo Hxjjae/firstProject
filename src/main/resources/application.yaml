@@ -10,6 +10,20 @@ spring:
     username: root
     password: green502
     jdbc-url: jdbc:mariadb://192.168.0.144:3306/team_h
+  mail:
+    host : smtp.gmail.com
+    port : 587
+    username : teamgreenh502
+    password : szmhabnwvpwxcxyg
+    properties :
+      mail :
+        smtp :
+          auth : true
+          starttls :
+            enable : true
+            required : true
+
+
 
 # mybatis config
 mybatis:
@@ -24,3 +38,5 @@ springdoc:
 file:
   dir: D:/download/project
 
+
+#email

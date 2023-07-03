@@ -6,6 +6,11 @@
         SET level = #{level}
         , pic = #{pic}
     </insert>
+    <update id="updSticker">
+        UPDATE sticker
+        SET pic = #{pic}
+        WHERE isticker = #{isticker}
+    </update>
 
     <select id="selSticker">
         SELECT * from sticker

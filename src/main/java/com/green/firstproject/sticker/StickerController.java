@@ -37,9 +37,9 @@ public class StickerController {
             "level : 스티커 레벨<br>" +
             "pic : 스티커 사진")
     int patchSticker(@RequestPart MultipartFile pic
-                    , @RequestParam int level) {
+                    , @RequestParam int isticker) {
         StickerUpdDto dto = new StickerUpdDto();
-        dto.setLevel(level);
+        dto.setIsticker(isticker);
         return service.updSticker(pic,dto);
     }
 
