@@ -25,18 +25,12 @@ public class MemoService {
         return  result;
     }
 
-    public int upTileMemo(MemoUpTitleDto dto) {
-        return mapper.upTileMemo(dto);
-    }
-    public int upCtntMemo(MemoUpCtntDto dto) {
-        return mapper.upCtntMemo(dto);
+    public int upTileMemo(MemoUpAllDto dto) {
+        return mapper.upAllMemo(dto);
     }
 
-    public List<MemoListVo> selMemo(MemoListOneDto dto) {
-        dto.setImemo(dto.getImemo());
-        dto.setIuser(dto.getIuser());
-        return mapper.selMemo(dto);
-    }
+
+
 
     public List<MemoAllListVo> selAllMemo() {
         return mapper.selAllMemo();
