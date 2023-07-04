@@ -1,6 +1,8 @@
 package com.green.firstproject.mail;
 
+import com.green.firstproject.mail.model.EmailListDto;
 import com.green.firstproject.mail.model.EmailPostDto;
+import com.green.firstproject.user.UserMapper;
 import com.green.firstproject.user.UserService;
 import com.green.firstproject.user.model.UserEntity;
 import jakarta.mail.MessagingException;
@@ -21,10 +23,11 @@ import java.util.List;
 @RequiredArgsConstructor
 public class EmailService {
     private final JavaMailSender javaMailSender;
-    private List<String> emailList;
+    private final UserMapper mapper;
 
-    @Scheduled(cron = "0 43 14 * * 1-5")
+    @Scheduled(cron = "20 38 15 * * 1-5")
     public void sendMail() {
+        List<String> emailList = mapper.selEmail();
         for (String email : emailList) {
             EmailMessage emailMessage = EmailMessage.builder()
                     .to(email)
@@ -39,16 +42,17 @@ public class EmailService {
         MimeMessage mimeMessage = javaMailSender.createMimeMessage();
         try {
             MimeMessageHelper mimeMessageHelper = new MimeMessageHelper(mimeMessage, false, "UTF-8");
-            mimeMessageHelper.setTo(emailMessage.getTo());
-            mimeMessageHelper.setSubject(emailMessage.getSubject());
-            mimeMessageHelper.setText(emailMessage.getMessage(), false);
+            mimeMessageHelper.setTo(emailMessage.getTo()); // 메일 수신자
+            mimeMessageHelper.setSubject(emailMessage.getSubject()); // 메일 제목
+            mimeMessageHelper.setText(emailMessage.getMessage(), false); // 메일 본문 내용, html 여부
             javaMailSender.send(mimeMessage);
             log.info("Email sent successfully!");
         } catch (MessagingException e) {
             log.error("Failed to send email", e);
             throw new RuntimeException(e);
         }
+    }
 
 
-}
+
 }

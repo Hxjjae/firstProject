@@ -32,4 +32,9 @@
         from user
     </select>
 
+    <select id="selEmail">
+        SELECT email
+        from user
+    </select>
+
 </mapper>
