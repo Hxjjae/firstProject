@@ -9,7 +9,7 @@ import java.util.List;
 public interface MemoMapper {
     int insMemo(MemoEntity entity);
 
-    int upAllMemo(MemoUpAllDto dto);
+    int upAllMemo(MemoEntity entity);
 
 
     List<MemoListVo> selOneMemo(MemoListOneDto dto);

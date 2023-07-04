@@ -25,8 +25,9 @@ public class MemoService {
         return  result;
     }
 
-    public int upTileMemo(MemoUpAllDto dto) {
-        return mapper.upAllMemo(dto);
+    public int upTileMemo(MemoEntity entity) {
+
+        return mapper.upAllMemo(entity);
     }
 
 

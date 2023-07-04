@@ -68,8 +68,8 @@ public class UserService {
 
 
 
-    public int upAllUser(UserAllDto dto) {
-        return mapper.upAllUser(dto);
+    public int upAllUser(UserEntity entity) {
+        return mapper.upAllUser(entity);
     }
 
 

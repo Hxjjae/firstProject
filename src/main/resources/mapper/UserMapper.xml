@@ -14,6 +14,7 @@
         set main_pic = #{mainPic}
         where iuser = #{iuser}
     </update>
+
     <update id="upAllUser">
         update user
         set name = #{name}
