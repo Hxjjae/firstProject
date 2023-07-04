@@ -5,6 +5,7 @@ import jakarta.mail.MessagingException;
 import jakarta.mail.internet.MimeMessage;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.scheduling.annotation.Scheduled;
@@ -16,7 +17,8 @@ import org.springframework.stereotype.Service;
 public class EmailService {
     private final JavaMailSender javaMailSender;
 
-    public void sendMail(EmailMessage emailMessage) {
+
+    public void sendEmail(EmailMessage emailMessage) {
         MimeMessage mimeMessage = javaMailSender.createMimeMessage();
         try {
             MimeMessageHelper mimeMessageHelper = new MimeMessageHelper(mimeMessage, false, "UTF-8");
@@ -30,5 +32,12 @@ public class EmailService {
             throw new RuntimeException(e);
         }
     }
+//public void sendEmail(String recipient, String subject, String content) {
+//    SimpleMailMessage message = new SimpleMailMessage();
+//    message.setTo(recipient);
+//    message.setSubject(subject);
+//    message.setText(content);
+//    javaMailSender.send(message);
+//    }
 
 }

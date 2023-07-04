@@ -1,8 +1,9 @@
 package com.green.firstproject.mail.model;
 
+import lombok.Data;
 import lombok.Getter;
 
-@Getter
+@Data
 public class EmailPostDto {
     private String email;
 }
