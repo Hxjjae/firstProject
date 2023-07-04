@@ -3,9 +3,9 @@
 <mapper namespace="com.green.firstproject.user.UserMapper">
     <insert id="insUser" useGeneratedKeys="true" keyProperty="iuser">
         insert into user
-        (name)
+        (name,email)
         values
-        (#{name})
+        (#{name},#{email})
     </insert>
 
 

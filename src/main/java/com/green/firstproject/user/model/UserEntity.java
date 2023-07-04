@@ -8,4 +8,5 @@ public class UserEntity {
     private  String name;
     private  String mainPic;
     private  String objective;
+    private   String email;
 }
