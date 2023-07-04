@@ -9,5 +9,5 @@ import java.util.List;
 @Getter
 @AllArgsConstructor
 public class EmailPostDto {
-    private List<String> email;
+    private List<Integer> iuser;
 }

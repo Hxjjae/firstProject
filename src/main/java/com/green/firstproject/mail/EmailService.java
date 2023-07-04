@@ -21,8 +21,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class EmailService {
     private final JavaMailSender javaMailSender;
-    List<String> emailList;
-
+    private List<String> emailList;
 
     @Scheduled(cron = "0 43 14 * * 1-5")
     public void sendMail() {
@@ -40,17 +39,16 @@ public class EmailService {
         MimeMessage mimeMessage = javaMailSender.createMimeMessage();
         try {
             MimeMessageHelper mimeMessageHelper = new MimeMessageHelper(mimeMessage, false, "UTF-8");
-            mimeMessageHelper.setTo(emailMessage.getTo()); // 메일 수신자
-            mimeMessageHelper.setSubject(emailMessage.getSubject()); // 메일 제목
-            mimeMessageHelper.setText(emailMessage.getMessage(), false); // 메일 본문 내용, html 여부
+            mimeMessageHelper.setTo(emailMessage.getTo());
+            mimeMessageHelper.setSubject(emailMessage.getSubject());
+            mimeMessageHelper.setText(emailMessage.getMessage(), false);
             javaMailSender.send(mimeMessage);
             log.info("Email sent successfully!");
         } catch (MessagingException e) {
             log.error("Failed to send email", e);
             throw new RuntimeException(e);
         }
-    }
 
 
-
+}
 }

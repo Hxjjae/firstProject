@@ -15,6 +15,7 @@ import java.util.List;
 public class UserService {
     private final UserMapper mapper;
 
+
     @Value("${file.dir}")
     private String fileDir;
 
@@ -73,7 +74,6 @@ public class UserService {
 
 
 
-
     public List<UserListVo> selUser(UserListOneDto dto) {
         dto.setIuser(dto.getIuser());
         return mapper.selUser(dto);
@@ -82,5 +82,8 @@ public class UserService {
     public List<UserAllListVo> selAllUser() {
         return mapper.selAllUser();
     }
+
+
+
 
 }
