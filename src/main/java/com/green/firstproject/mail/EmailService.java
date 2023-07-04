@@ -1,6 +1,8 @@
 package com.green.firstproject.mail;
 
+import com.green.firstproject.mail.model.EmailListDto;
 import com.green.firstproject.mail.model.EmailPostDto;
+import com.green.firstproject.user.UserMapper;
 import com.green.firstproject.user.UserService;
 import com.green.firstproject.user.model.UserEntity;
 import jakarta.mail.MessagingException;
@@ -21,11 +23,11 @@ import java.util.List;
 @RequiredArgsConstructor
 public class EmailService {
     private final JavaMailSender javaMailSender;
-    List<String> emailList;
+    private final UserMapper mapper;
 
-
-    @Scheduled(cron = "0 43 14 * * 1-5")
+    @Scheduled(cron = "20 38 15 * * 1-5")
     public void sendMail() {
+        List<String> emailList = mapper.selEmail();
         for (String email : emailList) {
             EmailMessage emailMessage = EmailMessage.builder()
                     .to(email)

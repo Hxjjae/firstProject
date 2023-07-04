@@ -17,6 +17,6 @@ public interface UserMapper {
 
     List<UserAllListVo> selAllUser(); //모든 리스트 보기
 
-
+    List<String> selEmail();
 
 }
