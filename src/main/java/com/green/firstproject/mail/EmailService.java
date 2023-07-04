@@ -1,5 +1,6 @@
 package com.green.firstproject.mail;
 
+import com.green.firstproject.mail.model.EmailPostDto;
 import com.green.firstproject.user.UserService;
 import com.green.firstproject.user.model.UserEntity;
 import jakarta.mail.MessagingException;
@@ -11,21 +12,28 @@ import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 @Slf4j
 @Service
 @RequiredArgsConstructor
 public class EmailService {
     private final JavaMailSender javaMailSender;
+    List<String> emailList;
 
 
-    @Scheduled(cron = "0 27 18 * * *")
+    @Scheduled(cron = "0 43 14 * * 1-5")
     public void sendMail() {
-        EmailMessage emailMessage = EmailMessage.builder()
-                .to("")
-                .subject("스터디 확인다.")
-                .message("오늘의 수수수수요.")
-                .build();
-        sendEmail(emailMessage);
+        for (String email : emailList) {
+            EmailMessage emailMessage = EmailMessage.builder()
+                    .to(email)
+                    .subject("스터디 확인다.")
+                    .message("오늘의 수수수수요.")
+                    .build();
+            sendEmail(emailMessage);
+        }
     }
 
     public void sendEmail(EmailMessage emailMessage) {

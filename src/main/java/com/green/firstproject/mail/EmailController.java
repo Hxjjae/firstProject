@@ -19,7 +19,7 @@ public class EmailController {
     private final EmailService emailService;
 
     @PostMapping("/send-mail")
-    public ResponseEntity<EmailResponseDto> sendMail() {
+    public ResponseEntity<EmailResponseDto> sendMail(@RequestBody EmailPostDto dto) {
         return ResponseEntity.ok(new EmailResponseDto("SUCCESS"));
     }
 }

@@ -19,8 +19,7 @@ public class TimerController {
     @PostMapping
     @Operation(summary = "타이머 추가", description = "" +
             "studyLine : 공부한시간<br>" +
-            "iuser : user 키값<br>" +
-            "icategory : category 키값")
+            "iuser : user 키값<br>")
     public int insTimer(@RequestBody TimerInsDto dto) {
         return SERVICE.insTimer(dto);
     }
@@ -28,7 +27,7 @@ public class TimerController {
     @PatchMapping
     @Operation(summary = "타이머 수정 및 스티커 추가", description = "" +
             "iuser : user 키값<br>" +
-            "icategory : category 키값<br>" +
+            "itimer : 타이머 키값<br>" +
             "studyLine : 공부한시간")
     public int patchTimer(@RequestBody TimerUpdDto dto) {
         return SERVICE.updTimer(dto);
