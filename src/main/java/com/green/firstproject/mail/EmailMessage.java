@@ -1,5 +1,6 @@
 package com.green.firstproject.mail;
 
+import com.green.firstproject.mail.model.EmailPostDto;
 import lombok.Builder;
 import lombok.Data;
 

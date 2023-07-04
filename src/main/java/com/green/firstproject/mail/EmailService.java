@@ -1,11 +1,11 @@
 package com.green.firstproject.mail;
 
 import com.green.firstproject.user.UserService;
+import com.green.firstproject.user.model.UserEntity;
 import jakarta.mail.MessagingException;
 import jakarta.mail.internet.MimeMessage;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.scheduling.annotation.Scheduled;
@@ -18,6 +18,16 @@ public class EmailService {
     private final JavaMailSender javaMailSender;
 
 
+    @Scheduled(cron = "0 27 18 * * *")
+    public void sendMail() {
+        EmailMessage emailMessage = EmailMessage.builder()
+                .to("")
+                .subject("스터디 확인다.")
+                .message("오늘의 수수수수요.")
+                .build();
+        sendEmail(emailMessage);
+    }
+
     public void sendEmail(EmailMessage emailMessage) {
         MimeMessage mimeMessage = javaMailSender.createMimeMessage();
         try {
@@ -26,18 +36,13 @@ public class EmailService {
             mimeMessageHelper.setSubject(emailMessage.getSubject()); // 메일 제목
             mimeMessageHelper.setText(emailMessage.getMessage(), false); // 메일 본문 내용, html 여부
             javaMailSender.send(mimeMessage);
-            log.info("success!");
+            log.info("Email sent successfully!");
         } catch (MessagingException e) {
-            log.info("fail");
+            log.error("Failed to send email", e);
             throw new RuntimeException(e);
         }
     }
-//public void sendEmail(String recipient, String subject, String content) {
-//    SimpleMailMessage message = new SimpleMailMessage();
-//    message.setTo(recipient);
-//    message.setSubject(subject);
-//    message.setText(content);
-//    javaMailSender.send(message);
-//    }
+
+
 
 }
