@@ -71,6 +71,9 @@ public class UserService {
         return mapper.upAllUser(dto);
     }
 
+
+
+
     public List<UserListVo> selUser(UserListOneDto dto) {
         dto.setIuser(dto.getIuser());
         return mapper.selUser(dto);

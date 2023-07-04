@@ -12,7 +12,7 @@ public interface MemoMapper {
     int upAllMemo(MemoUpAllDto dto);
 
 
-
+    List<MemoListVo> selOneMemo(MemoListOneDto dto);
 
 
     List<MemoAllListVo> selAllMemo(); // 모든 메모 보기

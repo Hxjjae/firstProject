@@ -5,4 +5,5 @@ import lombok.Getter;
 @Getter
 public class EmailPostDto {
     private String email;
+    private int iuser;
 }
