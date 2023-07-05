@@ -28,10 +28,10 @@
         where iuser = #{iuser}
     </select>
 
-    <select id="selAllUser">
-        select iuser,name, main_pic mainPic, objective
-        from user
-    </select>
+<select id="selAllUser">
+    select iuser,name, main_pic mainPic, objective
+    from user
+</select>
 
     <select id="selEmail">
         SELECT email
