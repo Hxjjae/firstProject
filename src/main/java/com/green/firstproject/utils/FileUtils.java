@@ -1,5 +1,7 @@
 package com.green.firstproject.utils;
 
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.UUID;
 
 public class FileUtils {
@@ -24,5 +26,9 @@ public class FileUtils {
         String savedFileName = uuid + result;
 
         return savedFileName;
+    }
+    //절대경로 리턴  이프로젝트를 실행하는 드라이브 리턴
+    public static String getAbsolutePath(String src){
+        return Paths.get(src).toFile().getAbsolutePath();
     }
 }
