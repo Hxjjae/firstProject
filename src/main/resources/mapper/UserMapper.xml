@@ -34,8 +34,12 @@
 </select>
 
     <select id="selEmail">
-        SELECT email
-        from user
+        SELECT A.email
+        FROM user A
+        LEFT JOIN todo B
+        ON A.iuser = B.iuser
+        AND B.created_at = CURDATE()
+        WHERE B.iuser IS NULL;
     </select>
 
 </mapper>
