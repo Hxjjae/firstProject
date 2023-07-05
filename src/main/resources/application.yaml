@@ -23,8 +23,6 @@ spring:
             enable : true
             required : true
 
-
-
 # mybatis config
 mybatis:
   type-aliases-package: com.green.firstproject
@@ -36,7 +34,6 @@ springdoc:
     path: /swagger.html
 
 file:
-  dir: D:/download/project
-
+  dir: /home/download
 
 #email
