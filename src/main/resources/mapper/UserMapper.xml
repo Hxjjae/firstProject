@@ -33,16 +33,13 @@
         from user
     </select>
 
-    <select id="selEmail2">
-        SELECT A.email, B.itodo
-        FROM user A
-        INNER JOIN todo B
-        ON A.iuser = B.iuser
-        WHERE B.created_at = CURDATE()
-    </select>
     <select id="selEmail">
-        SELECT email
-        from user
+        SELECT A.email
+        FROM user A
+        LEFT JOIN todo B
+        ON A.iuser = B.iuser
+        AND B.created_at = CURDATE()
+        WHERE B.iuser IS NULL;
     </select>
 
 </mapper>
