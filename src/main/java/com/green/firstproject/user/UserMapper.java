@@ -19,4 +19,6 @@ public interface UserMapper {
 
     List<String> selEmail();
 
+    List<String> selEmail2();
+
 }
