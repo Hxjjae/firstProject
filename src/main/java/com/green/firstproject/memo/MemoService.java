@@ -25,12 +25,15 @@ public class MemoService {
         return  result;
     }
 
-    public int upTileMemo(MemoUpAllDto dto) {
-        return mapper.upAllMemo(dto);
+    public int upTileMemo(MemoEntity entity) {
+
+        return mapper.upAllMemo(entity);
     }
 
 
-
+    List<MemoListVo> selOneMemo(MemoListOneDto dto) {
+        return mapper.selOneMemo(dto);
+    }
 
     public List<MemoAllListVo> selAllMemo() {
         return mapper.selAllMemo();

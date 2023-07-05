@@ -15,23 +15,35 @@ import java.util.List;
 public class MemoController {
     private final MemoService service;
 
-    @PostMapping
+    @PostMapping("/post")
     @Operation(summary = "메모장 타이틀, 내용 등록", description = "title : 제목<br>" + "ctnt : 내용<br>" + "iuser : 해당 유저 pk값")
     public int postMemo(@RequestBody MemoInsDto dto) {
         return service.insMemo(dto);
     }
 
-    @PatchMapping("/titleCtnt")
+    @PatchMapping("/titleCtnt/{iuser}")
     @Operation(summary = "메모장 타이틀, 내용 수정", description = "imemo : 메모장 PK값<br>" + "iuser : 해당 유저 pk값<br>" + "title : 제목<br>" +
             "ctnt : 내용")
-    public int patchTileMemo(@RequestBody MemoUpAllDto dto) {
-        return service.upTileMemo(dto);
+    public int patchTileMemo(@PathVariable int iuser,@RequestBody MemoUpAllDto dto) {
+        MemoEntity entity = new MemoEntity();
+        entity.setIuser(iuser);
+        entity.setCtnt(dto.getCtnt());
+        entity.setTitle(dto.getTitle());
+        entity.setImemo(dto.getImemo());
+        return service.upTileMemo(entity);
     }
 
     @GetMapping("/allMemo")
     @Operation(summary = "모든 메모 보기")
     public List<MemoAllListVo> selAllMemo() {
         return service.selAllMemo();
+    }
+
+
+    @GetMapping
+    @Operation(summary = "메모 하나씩 보기")
+    public List<MemoListVo> getOneemo(MemoListOneDto dto) {
+        return service.selOneMemo(dto);
     }
 
     @DeleteMapping

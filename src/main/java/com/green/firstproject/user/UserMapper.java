@@ -11,7 +11,7 @@ public interface UserMapper {
 
     int upUserPic(UserPicDto dto);
 
-    int upAllUser(UserAllDto dto);
+    int upAllUser(UserEntity entity);
 
     List<UserListVo> selUser(UserListOneDto dto); // 리스트 하나씩 보기
 
