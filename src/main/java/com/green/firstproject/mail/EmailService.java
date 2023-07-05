@@ -25,16 +25,17 @@ public class EmailService {
     private final JavaMailSender javaMailSender;
     private final UserMapper mapper;
 
-    @Scheduled(cron = "20 38 15 * * 1-5")
+    @Scheduled(cron = "45 41 11 * * 1-5")
     public void sendMail() {
         List<String> emailList = mapper.selEmail();
-        for (String email : emailList) {
-            EmailMessage emailMessage = EmailMessage.builder()
-                    .to(email)
-                    .subject("스터디 플래너에서 보내드립니다.")
-                    .message("오늘의 스터티플랜을 작성해주세요.")
-                    .build();
-            sendEmail(emailMessage);
+            for (String email : emailList) {
+                EmailMessage emailMessage = EmailMessage.builder()
+                        .to(email)
+                        .subject("스터디 플래너입니다.")
+                        .message("오늘의 스터디플랜을 작성해주세요!")
+                        .build();
+                sendEmail(emailMessage);
+
         }
     }
 
@@ -52,7 +53,6 @@ public class EmailService {
             throw new RuntimeException(e);
         }
     }
-
 
 
 }
