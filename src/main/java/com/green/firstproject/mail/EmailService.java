@@ -32,7 +32,7 @@ public class EmailService {
             EmailMessage emailMessage = EmailMessage.builder()
                     .to(email)
                     .subject("스터디 플래너에서 보내드립니다.")
-                    .message("오늘의 스터티프랜을 작성해주세요.")
+                    .message("오늘의 스터티플랜을 작성해주세요.")
                     .build();
             sendEmail(emailMessage);
         }
