@@ -62,7 +62,7 @@ public class UserService {
             target.delete();
             return temp;
         }
-        return targetPath;
+        return savedFilePath;
     }
 
 
