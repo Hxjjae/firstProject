@@ -29,9 +29,9 @@ public class UserController {
 
 
 
-    @PatchMapping(name = "/pic", consumes = {MediaType.MULTIPART_FORM_DATA_VALUE})
+    @PatchMapping
     @Operation(summary = "프로필 사진 등록", description = "iuser : 유저 PK 값 ")
-    public int patchPicUser(@RequestPart MultipartFile pic, @RequestParam int iuser) {
+    public int patchPicUser(MultipartFile pic, @RequestParam int iuser) {
         UserPicDto dto = new UserPicDto();
         dto.setIuser(iuser);
         return service.upUserPic(pic, dto);
