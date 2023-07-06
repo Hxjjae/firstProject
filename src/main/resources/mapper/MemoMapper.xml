@@ -37,11 +37,7 @@
     </select>
 
     <delete id="delMemo">
-        update memo
-        set del_yn = case
-        when del_yn = 0 then 1
-        when del_yn = 1 then 0
-        end
+        delete from memo
         where imemo = #{imemo}
     </delete>
 
