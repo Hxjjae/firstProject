@@ -3,13 +3,11 @@ package com.green.firstproject.user;
 import com.green.firstproject.user.model.*;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
-import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -29,11 +27,12 @@ public class UserController {
 
 
 
-    @PatchMapping
+    @PatchMapping(name = "/pic", consumes = {MediaType.MULTIPART_FORM_DATA_VALUE})
     @Operation(summary = "프로필 사진 등록", description = "iuser : 유저 PK 값 ")
-    public int patchPicUser(MultipartFile pic, @RequestParam int iuser) {
+    public String patchPicUser(@RequestPart MultipartFile pic, @RequestParam int iuser) {
         UserPicDto dto = new UserPicDto();
         dto.setIuser(iuser);
+
         return service.upUserPic(pic, dto);
     }
 

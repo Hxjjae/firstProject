@@ -5,5 +5,4 @@ import lombok.Data;
 @Data
 public class MemoDelDto {
     private int imemo;
-    private int delYn;
 }

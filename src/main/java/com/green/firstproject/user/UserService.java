@@ -24,7 +24,6 @@ public class UserService {
         UserEntity entity = new UserEntity();
         entity.setName(dto.getName());
 
-
         int result = mapper.insUser(entity);
         if (result == 1) {
             return entity.getIuser();
@@ -35,10 +34,10 @@ public class UserService {
 
 
 
-    public int upUserPic(MultipartFile pic, UserPicDto dto) {
+    public String upUserPic(MultipartFile pic, UserPicDto dto) {
         String centerPath = String.format("user/%d", dto.getIuser());
         String dicPath = String.format("%s/%s", FileUtils.getAbsolutePath(fileDir), centerPath);
-
+        String temp = "0";
         File dic = new File(dicPath);
         if(!dic.exists()) {
             dic.mkdirs();
@@ -52,18 +51,18 @@ public class UserService {
         try {
             pic.transferTo(target);
         } catch (Exception e) {
-            return 0;
+            return temp;
         }dto.setMainPic(savedFilePath);
         try {
             int result = mapper.upUserPic(dto);
-            if (result == 0) {
+            if (result == Integer.parseInt(temp)) {
                 throw new Exception("스티커 사진 등록 불가");
             }
         } catch (Exception e) {
             target.delete();
-            return 0;
+            return temp;
         }
-        return 1;
+        return targetPath;
     }
 
 
@@ -82,8 +81,6 @@ public class UserService {
     public List<UserAllListVo> selAllUser() {
         return mapper.selAllUser();
     }
-
-
 
 
 }
