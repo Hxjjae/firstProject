@@ -9,7 +9,7 @@ import java.util.List;
 public interface UserMapper {
     int insUser(UserEntity entity);
 
-    int upUserPic(UserPicDto dto);
+   int upUserPic(UserPicDto dto);
 
     int upAllUser(UserEntity entity);
 

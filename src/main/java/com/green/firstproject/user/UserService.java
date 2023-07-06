@@ -35,7 +35,7 @@ public class UserService {
 
 
 
-    public int upUserPic(MultipartFile pic, UserPicDto dto) {
+    public String upUserPic(MultipartFile pic, UserPicDto dto) {
         String centerPath = String.format("user/%d", dto.getIuser());
         String dicPath = String.format("%s/%s", FileUtils.getAbsolutePath(fileDir), centerPath);
 
@@ -51,19 +51,16 @@ public class UserService {
         File target = new File(targetPath);
         try {
             pic.transferTo(target);
-        } catch (Exception e) {
-            return 0;
-        }dto.setMainPic(savedFilePath);
-        try {
+            dto.setMainPic(savedFilePath);
             int result = mapper.upUserPic(dto);
             if (result == 0) {
                 throw new Exception("스티커 사진 등록 불가");
             }
+            return targetPath;
         } catch (Exception e) {
             target.delete();
-            return 0;
+            return null;
         }
-        return 1;
     }
 
 
