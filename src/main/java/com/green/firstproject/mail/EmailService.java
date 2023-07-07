@@ -25,14 +25,15 @@ public class EmailService {
     private final JavaMailSender javaMailSender;
     private final UserMapper mapper;
 
-    @Scheduled(cron = "45 41 11 * * 1-5")
+    @Scheduled(cron = "0 0 11,19 * * 1-5")
     public void sendMail() {
         List<String> emailList = mapper.selEmail();
             for (String email : emailList) {
                 EmailMessage emailMessage = EmailMessage.builder()
                         .to(email)
                         .subject("스터디 플래너입니다.")
-                        .message("오늘의 스터디플랜을 작성해주세요!")
+                        .message("아직 작성된 플랜이 없으시군요 " +
+                                "오늘의 스터디플랜을 작성해보는건 어떨까요?")
                         .build();
                 sendEmail(emailMessage);
 
