@@ -1,11 +1,12 @@
 package com.green.firstproject.timer;
 
-import com.green.firstproject.timer.model.TimerInsDto;
-import com.green.firstproject.timer.model.TimerUpdDto;
+import com.green.firstproject.timer.model.*;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/timer")
@@ -31,5 +32,14 @@ public class TimerController {
             "studyLine : 공부한시간")
     public int patchTimer(@RequestBody TimerUpdDto dto) {
         return SERVICE.updTimer(dto);
+    }
+
+    @GetMapping
+    @Operation(summary = "타이머 별 시간 및 스티커 가져오기")
+    public List<TimerVo> selTimerByDate(@RequestParam int iuser, @RequestParam int itimer) {
+        TimerEntity entity = new TimerEntity();
+        entity.setIuser(iuser);
+        entity.setItimer(itimer);
+        return SERVICE.selTimerByDate(entity);
     }
 }

@@ -1,9 +1,10 @@
 package com.green.firstproject.timer;
 
-import com.green.firstproject.timer.model.TimerInsDto;
-import com.green.firstproject.timer.model.TimerUpdDto;
+import com.green.firstproject.timer.model.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -18,5 +19,9 @@ public class TimerService {
 
     public int updTimer(TimerUpdDto dto) {
         return MAPPER.updTimer(dto);
+    }
+
+    public List<TimerVo> selTimerByDate(TimerEntity entity) {
+        return MAPPER.selTimerByDate(entity);
     }
 }
