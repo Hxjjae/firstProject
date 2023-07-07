@@ -43,4 +43,8 @@ public class MemoService {
 
         return mapper.delMemo(dto);
     }
+
+    public int delAllMemo() {
+        return mapper.delAllMemo();
+    }
 }

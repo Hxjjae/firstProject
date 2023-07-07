@@ -19,5 +19,7 @@ public interface MemoMapper {
 
     int delMemo(MemoDelDto dto);
 
+    int delAllMemo();
+
 
 }

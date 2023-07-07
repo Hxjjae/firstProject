@@ -41,4 +41,8 @@
         where imemo = #{imemo}
     </delete>
 
+    <delete id="delAllMemo">
+        delete from memo
+    </delete>
+
 </mapper>

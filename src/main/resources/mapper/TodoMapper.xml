@@ -48,7 +48,8 @@
     </select>
 
     <select id="selAllTodo" resultType="SelAllVo">
-        Select *from todo;
+        Select *from todo
+        where del_yn = 0
     </select>
 
     <select id="UserCategorySel">
