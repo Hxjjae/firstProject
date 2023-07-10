@@ -67,7 +67,6 @@
     <select id="Selbymonth">
     Select *from todo
     where iuser =#{iuser}
-    and day(created_at) = #{day}
     and month(created_at) =#{month}
 </select>
 
