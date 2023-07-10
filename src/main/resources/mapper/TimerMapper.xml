@@ -3,10 +3,9 @@
 <mapper namespace="com.green.firstproject.timer.TimerMapper">
     <insert id="insTimer">
         INSERT INTO timer
-        SET study_line = #{studyLine},
-        iuser = #{iuser}
-        ON DUPLICATE KEY UPDATE
-        study_line = study_line + #{studyLine};
+        (study_line, iuser)
+        VALUES
+        (#{studyLine}, #{iuser})
     </insert>
 
     <update id="updTimer">
@@ -29,8 +28,10 @@
     </select>
 
     <select id="selTimerByDate">
-        SELECT * FROM timer
-        WHERE MONTH(dead_line) = #{month};
+        SELECT itimer ,SUM(study_line) sum_study_line, dead_line, iuser
+        FROM timer
+        WHERE iuser = #{iuser}
+        GROUP BY iuser , dead_line;
     </select>
 
 
