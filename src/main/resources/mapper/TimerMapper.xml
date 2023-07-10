@@ -17,9 +17,14 @@
             WHEN #{studyLine} <= 72 THEN 4
             WHEN #{studyLine} <= 96 THEN 5
             ELSE 6 END
-            WHERE iuser = #{iuser}
-            AND itimer = #{itimer}
+            WHERE (iuser, itimer)
+        IN (SELECT iuser, itimer
+        FROM timer
+        WHERE iuser = #{iuser}
+        AND itimer = #{itimer}
+        GROUP BY iuser, dead_line)
         ]]>
+
     </update>
     <select id="selTimerByDate2">
         SELECT *
