@@ -59,7 +59,7 @@ public class TodoCotnroller {
     @GetMapping("/allboard")
     @Operation(summary = "전체 글 보기")
     public List<SelAllVo> selAllTodo(){
-    return service.selAllTodo();
+        return service.selAllTodo();
     }
     @GetMapping("/category")
     @Operation(summary = "카테고리별 쓴글 보기",description = "icategory : 카테고리의 외래키<br>"+"iuser : user의 pk값 여기서는 외래키")
@@ -69,5 +69,13 @@ public class TodoCotnroller {
     dto.setIcategory(icategory);
     dto.setIuser(iuser);
     return service.UserCategorySel(dto);
+    }
+    @GetMapping("/byday")
+    @Operation(summary = "날짜 별로 출력")
+    public List<SelVo> Selbyday(@RequestParam int day,@RequestParam int iuser){
+    SelDayDto dto = new SelDayDto();
+    dto.setDay(day);
+    dto.setIuser(iuser);
+    return service.selbyday(dto);
     }
 }

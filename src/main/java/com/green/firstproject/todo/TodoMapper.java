@@ -15,4 +15,5 @@ List<SelVo> selTodo(TodoSelDto dto);
 List<SelUserVo> selUserTodo(SelUserDto dto);
 List<SelAllVo> selAllTodo();
 List<SelVo> UserCategorySel(SelCategoryDto dto);
+List<SelVo> Selbyday(SelDayDto dto);
 }
