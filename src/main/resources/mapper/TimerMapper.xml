@@ -8,6 +8,19 @@
         (#{studyLine}, #{iuser})
     </insert>
 
+    <update id="updTimer2">
+        <![CDATA[
+            UPDATE timer
+            SET study_line = #{studyLine}
+            , isticker = CASE WHEN #{studyLine} <= 24 THEN 2
+            WHEN #{studyLine} <= 48 THEN 3
+            WHEN #{studyLine} <= 72 THEN 4
+            WHEN #{studyLine} <= 96 THEN 5
+            ELSE 6 END
+            WHERE iuser = #{iuser}
+            AND itimer = #{itimer}
+        ]]>
+    </update>
     <update id="updTimer">
         <![CDATA[
             UPDATE timer
@@ -38,7 +51,4 @@
         WHERE iuser = #{iuser}
         GROUP BY iuser , dead_line;
     </select>
-
-
-
 </mapper>
