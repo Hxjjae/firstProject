@@ -21,9 +21,15 @@
             AND itimer = #{itimer}
         ]]>
     </update>
-    <select id="selTimerByDate">
+    <select id="selTimerByDate2">
         SELECT *
         from timer
         WHERE iuser = #{iuser}
+    </select>
+
+    <select id="selTimerByDate">
+        SELECT * FROM timer
+        WHERE DAY(dead_line) = #{day}
+        AND MONTH(dead_line) = #{month};
     </select>
 </mapper>

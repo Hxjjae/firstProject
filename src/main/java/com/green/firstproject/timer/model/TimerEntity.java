@@ -9,4 +9,6 @@ public class TimerEntity {
     private int studyLine;
     private int iuser;
     private int isticker;
+    private int month;
+    private int day;
 }
