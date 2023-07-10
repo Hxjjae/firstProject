@@ -25,6 +25,5 @@
         SELECT *
         from timer
         WHERE iuser = #{iuser}
-        AND itimer = #{itimer}
     </select>
 </mapper>
