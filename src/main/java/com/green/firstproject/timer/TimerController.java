@@ -36,10 +36,9 @@ public class TimerController {
 
     @GetMapping
     @Operation(summary = "유저 별 시간 및 스티커 가져오기")
-    public List<TimerVo> selTimerByDate(@RequestParam int iuser , @RequestParam int month) {
+    public List<TimerVo> selTimerByDate(@RequestParam int iuser) {
         TimerEntity entity = new TimerEntity();
         entity.setIuser(iuser);
-        entity.setMonth(month);
         return SERVICE.selTimerByDate(entity);
     }
 }

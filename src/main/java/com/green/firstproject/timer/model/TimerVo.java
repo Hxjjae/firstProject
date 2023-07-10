@@ -8,7 +8,7 @@ import lombok.Setter;
 @AllArgsConstructor
 public class TimerVo {
     private int itimer;
+    private String studyLine;
     private String deadLine;
     private int iuser;
-    private int isticker;
 }
