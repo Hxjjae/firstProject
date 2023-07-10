@@ -71,11 +71,19 @@ public class TodoCotnroller {
     return service.UserCategorySel(dto);
     }
     @GetMapping("/byday")
-    @Operation(summary = "날짜 별로 출력")
+    @Operation(summary = "일 별로 출력(한달)")
     public List<SelVo> Selbyday(@RequestParam int day,@RequestParam int iuser){
     SelDayDto dto = new SelDayDto();
     dto.setDay(day);
     dto.setIuser(iuser);
     return service.selbyday(dto);
+    }
+    @GetMapping("/bymonth")
+    @Operation(summary = "월 별로 출력")
+    public List<SelVo> Selbymonth(@RequestParam int iuser,@RequestParam int month){
+    SelbymonthDto dto =new SelbymonthDto();
+    dto.setMonth(month);
+    dto.setIuser(iuser);
+    return service.Selbymonth(dto);
     }
 }
