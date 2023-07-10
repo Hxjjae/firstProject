@@ -57,4 +57,11 @@
         WHERE icategory =#{icategory} and iuser = #{iuser};
     </select>
 
+    <select id="Selbyday">
+        SELECT * FROM TODO
+        WHERE created_at BETWEEN DATE_ADD(NOW(), INTERVAL -1 MONTH )
+        AND NOW() AND iuser =#{iuser}
+        AND DAY(created_at) = #{day};
+    </select>
+
 </mapper>

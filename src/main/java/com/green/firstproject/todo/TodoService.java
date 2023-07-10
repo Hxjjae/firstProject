@@ -46,4 +46,9 @@ public class TodoService {
     public List<SelVo> UserCategorySel(SelCategoryDto dto){
         return mapper.UserCategorySel(dto);
     }
+
+    public List<SelVo> selbyday(SelDayDto dto) {
+    return mapper.Selbyday(dto);
+
+    }
 }
