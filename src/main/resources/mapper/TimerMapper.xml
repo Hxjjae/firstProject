@@ -3,9 +3,10 @@
 <mapper namespace="com.green.firstproject.timer.TimerMapper">
     <insert id="insTimer">
         INSERT INTO timer
-        (study_line, iuser)
-        VALUES
-        (#{studyLine}, #{iuser})
+        SET study_line = #{studyLine},
+        iuser = #{iuser}
+        ON DUPLICATE KEY UPDATE
+        study_line = study_line + #{studyLine};
     </insert>
 
     <update id="updTimer">
@@ -29,7 +30,6 @@
 
     <select id="selTimerByDate">
         SELECT * FROM timer
-        WHERE DAY(dead_line) = #{day}
-        AND MONTH(dead_line) = #{month};
+        WHERE MONTH(dead_line) = #{month};
     </select>
 </mapper>
