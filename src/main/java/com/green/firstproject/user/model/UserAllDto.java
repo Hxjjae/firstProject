@@ -6,4 +6,5 @@ import lombok.Data;
 public class UserAllDto {
     private  String name;
     private  String objective;
+    private  String email;
 }

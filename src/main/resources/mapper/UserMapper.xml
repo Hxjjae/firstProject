@@ -19,7 +19,7 @@
         update user
         set name = #{name}
         , objective = #{objective}
-
+        , email = #{email}
         where iuser = #{iuser}
     </update>
     <select id="selUser" resultType="UserListVo">
@@ -29,7 +29,7 @@
     </select>
 
 <select id="selAllUser">
-    select iuser,name, main_pic mainPic, objective
+    select iuser,name, main_pic mainPic, objective, email
     from user
 </select>
 
