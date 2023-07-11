@@ -68,6 +68,9 @@
     Select *from todo
     where iuser =#{iuser}
     and month(created_at) =#{month}
+        and year(created_at) = #{year}
+        and day(created_at) = #{day}
+
 </select>
 
 </mapper>

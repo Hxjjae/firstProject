@@ -6,4 +6,6 @@ import lombok.Data;
 public class SelbymonthDto {
     private int iuser;
     private int month;
+    private int year;
+    private int day;
 }

@@ -80,9 +80,11 @@ public class TodoCotnroller {
     }
     @GetMapping("/bymonth")
     @Operation(summary = "월 별로 출력")
-    public List<SelVo> Selbymonth(@RequestParam int iuser,@RequestParam int month){
+    public List<SelVo> Selbymonth(@RequestParam int iuser,@RequestParam int month,@RequestParam int year,@RequestParam int day){
     SelbymonthDto dto =new SelbymonthDto();
     dto.setMonth(month);
+    dto.setYear(year);
+    dto.setDay(day);
     dto.setIuser(iuser);
     return service.Selbymonth(dto);
     }
