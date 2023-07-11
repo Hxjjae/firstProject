@@ -52,7 +52,7 @@ public class MemoController {
         return service.delMemo(dto);
     }
 
-    @DeleteMapping("/alldelmemo")
+    @DeleteMapping("/allmemo")
     @Operation(summary = "모든 메모 삭제")
     public int allDellMemo() {
         return service.delAllMemo();
