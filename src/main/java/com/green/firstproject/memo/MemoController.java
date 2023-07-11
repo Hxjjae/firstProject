@@ -21,7 +21,7 @@ public class MemoController {
         return service.insMemo(dto);
     }
 
-    @PatchMapping("/titleCtnt/{iuser}")
+    @PatchMapping("/titlectnt/{iuser}")
     @Operation(summary = "메모장 타이틀, 내용 수정", description = "imemo : 메모장 PK값<br>" + "iuser : 해당 유저 pk값<br>" + "title : 제목<br>" +
             "ctnt : 내용")
     public int patchTileMemo(@PathVariable int iuser,@RequestBody MemoUpAllDto dto) {
@@ -33,7 +33,7 @@ public class MemoController {
         return service.upTileMemo(entity);
     }
 
-    @GetMapping("/allMemo")
+    @GetMapping("/allmemo")
     @Operation(summary = "모든 메모 보기")
     public List<MemoAllListVo> selAllMemo() {
         return service.selAllMemo();
@@ -52,7 +52,7 @@ public class MemoController {
         return service.delMemo(dto);
     }
 
-    @DeleteMapping("/AllDelMemo")
+    @DeleteMapping("/alldelmemo")
     @Operation(summary = "모든 메모 삭제")
     public int allDellMemo() {
         return service.delAllMemo();

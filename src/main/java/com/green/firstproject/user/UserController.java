@@ -59,7 +59,7 @@ public class UserController {
     }
 
 
-    @GetMapping("/allList")
+    @GetMapping("/alllist")
     @Operation(summary = "모든 유저 프로필 확인")
     public List<UserAllListVo> selAllUser() {
         return service.selAllUser();
