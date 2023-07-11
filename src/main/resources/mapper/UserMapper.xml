@@ -9,11 +9,7 @@
     </insert>
 
 
-    <update id="upUserPic">
-        update user
-        set main_pic = #{mainPic}
-        where iuser = #{iuser}
-    </update>
+
 
     <update id="upAllUser">
         update user
@@ -22,11 +18,7 @@
         , email = #{email}
         where iuser = #{iuser}
     </update>
-    <select id="selUser" resultType="UserListVo">
-        select name,main_pic mainPic , objective
-        from user
-        where iuser = #{iuser}
-    </select>
+
 
 <select id="selAllUser">
     select iuser,name, main_pic mainPic, objective, email

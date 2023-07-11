@@ -27,14 +27,7 @@ public class UserController {
 
 
 
-    @PatchMapping(name = "/pic", consumes = {MediaType.MULTIPART_FORM_DATA_VALUE})
-    @Operation(summary = "프로필 사진 등록", description = "iuser : 유저 PK 값 ")
-    public String patchPicUser(@RequestPart MultipartFile pic, @RequestParam int iuser) {
-        UserPicDto dto = new UserPicDto();
-        dto.setIuser(iuser);
 
-        return service.upUserPic(pic, dto);
-    }
 
 
     @PutMapping(value = "/profile/{iuser}")
@@ -53,11 +46,7 @@ public class UserController {
 
 
 
-    @GetMapping
-    @Operation(summary = "유저 프로필 리스트 하나씩 확인" ,description = "iuser : 유저 pk값")
-    public List<UserListVo> getUser(UserListOneDto dto) {
-        return service.selUser(dto);
-    }
+
 
 
     @GetMapping("/alllist")

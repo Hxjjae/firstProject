@@ -34,36 +34,6 @@ public class UserService {
 
 
 
-    public String upUserPic(MultipartFile pic, UserPicDto dto) {
-        String centerPath = String.format("user/%d", dto.getIuser());
-        String dicPath = String.format("%s/%s", FileUtils.getAbsolutePath(fileDir), centerPath);
-        String temp = "0";
-        File dic = new File(dicPath);
-        if(!dic.exists()) {
-            dic.mkdirs();
-        }
-
-        String originFileName = pic.getOriginalFilename();
-        String savedFileName = FileUtils.makeRandomFileNm(originFileName);
-        String savedFilePath = String.format("%s/%s", centerPath, savedFileName);
-        String targetPath = String.format("%s/%s", FileUtils.getAbsolutePath(fileDir), savedFilePath);
-        File target = new File(targetPath);
-        try {
-            pic.transferTo(target);
-        } catch (Exception e) {
-            return temp;
-        }dto.setMainPic(savedFilePath);
-        try {
-            int result = mapper.upUserPic(dto);
-            if (result == Integer.parseInt(temp)) {
-                throw new Exception("스티커 사진 등록 불가");
-            }
-        } catch (Exception e) {
-            target.delete();
-            return temp;
-        }
-        return savedFilePath;
-    }
 
 
 
@@ -73,10 +43,7 @@ public class UserService {
 
 
 
-    public List<UserListVo> selUser(UserListOneDto dto) {
-        dto.setIuser(dto.getIuser());
-        return mapper.selUser(dto);
-    }
+
 
     public List<UserAllListVo> selAllUser() {
         return mapper.selAllUser();

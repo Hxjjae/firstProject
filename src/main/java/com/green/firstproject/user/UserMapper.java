@@ -9,11 +9,11 @@ import java.util.List;
 public interface UserMapper {
     int insUser(UserEntity entity);
 
-   int upUserPic(UserPicDto dto);
+
 
     int upAllUser(UserEntity entity);
 
-    List<UserListVo> selUser(UserListOneDto dto); // 리스트 하나씩 보기
+
 
     List<UserAllListVo> selAllUser(); //모든 리스트 보기
 

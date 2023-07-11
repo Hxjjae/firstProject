@@ -40,11 +40,7 @@ public class MemoController {
     }
 
 
-    @GetMapping
-    @Operation(summary = "메모 하나씩 보기")
-    public List<MemoListVo> getOneemo(MemoListOneDto dto) {
-        return service.selOneMemo(dto);
-    }
+
 
     @DeleteMapping
     @Operation(summary = "메모 삭제", description = "imemo : 메모장 pk값<br>")
