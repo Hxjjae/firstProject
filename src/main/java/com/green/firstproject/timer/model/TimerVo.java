@@ -11,4 +11,5 @@ public class TimerVo {
     private String studyLine;
     private String deadLine;
     private int iuser;
+    private int level;
 }
