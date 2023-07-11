@@ -46,8 +46,10 @@
     </select>
 
     <select id="selTimerByDate">
-        SELECT itimer ,SUM(study_line) sum_study_line, dead_line, iuser
-        FROM timer
+        SELECT A.itimer ,SUM(A.study_line) sum_study_line, A.dead_line, A.iuser, B.`level`
+        FROM timer A
+        INNER JOIN sticker B
+        ON A.isticker = B.isticker
         WHERE iuser = #{iuser}
         AND month(dead_line) = #{month}
         GROUP BY iuser , dead_line;
