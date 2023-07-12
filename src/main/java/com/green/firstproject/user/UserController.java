@@ -36,19 +36,19 @@ public class UserController {
         return service.upUserPic(pic, dto);
     }
 
-
     @PutMapping(value = "/profile/{iuser}")
-    @Operation(summary = "프로필 이름, 목표 수정",description = "name : 이름<br>"+"ovjective : 목표<br>"+"iuser : 유저 pk값")
-    public int allPutUser(@PathVariable int iuser,@RequestBody UserAllDto dto) {
+    @Operation(summary = "프로필 이름, 목표 수정, 이메일 수정", description = "name : 이름<br>" + "ovjective : 목표<br>" + "iuser : 유저 pk값<br>" + "email : 이메일")
+    public int allPutUser(@PathVariable int iuser, @RequestBody UserAllDto dto) {
         UserEntity entity = new UserEntity();
         entity.setIuser(iuser);
         entity.setName(dto.getName());
+        entity.setEmail(dto.getEmail());
         entity.setObjective(dto.getObjective());
         return service.upAllUser(entity);
-
-
-
     }
+
+
+
 
 
 
