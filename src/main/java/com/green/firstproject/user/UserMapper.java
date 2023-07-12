@@ -13,11 +13,14 @@ public interface UserMapper {
 
     int upAllUser(UserEntity entity);
 
-
+    
 
     List<UserAllListVo> selAllUser(); //모든 리스트 보기
 
     List<String> selEmail();
 
 
+    int upUserPic(UserPicDto dto);
+
+    List<UserListVo> selUser(UserListOneDto dto);
 }
