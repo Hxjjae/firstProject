@@ -10,4 +10,5 @@ public class UserAllListVo {
     private String name;
     private String mainPic;
     private String objective;
+    private String email;
 }

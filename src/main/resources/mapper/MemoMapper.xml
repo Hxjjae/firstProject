@@ -16,11 +16,6 @@
         and iuser = #{iuser}
     </update>
 
-    <select id="selOneMemo">
-        select imemo,title, ctnt
-        from memo
-        where iuser = #{iuser}
-    </select>
 
 
 

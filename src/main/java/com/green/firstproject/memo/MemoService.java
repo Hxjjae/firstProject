@@ -31,9 +31,7 @@ public class MemoService {
     }
 
 
-    List<MemoListVo> selOneMemo(MemoListOneDto dto) {
-        return mapper.selOneMemo(dto);
-    }
+
 
     public List<MemoAllListVo> selAllMemo() {
         return mapper.selAllMemo();

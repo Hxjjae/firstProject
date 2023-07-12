@@ -12,7 +12,6 @@ public interface MemoMapper {
     int upAllMemo(MemoEntity entity);
 
 
-    List<MemoListVo> selOneMemo(MemoListOneDto dto);
 
 
     List<MemoAllListVo> selAllMemo(); // 모든 메모 보기
