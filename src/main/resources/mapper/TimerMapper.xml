@@ -2,6 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.green.firstproject.timer.TimerMapper">
     <insert id="insTimer">
+        <![CDATA[
         INSERT INTO timer
         SET study_line = #{studyLine}
         , iuser = #{iuser}
@@ -10,6 +11,7 @@
         WHEN #{studyLine} <= 72 THEN 4
         WHEN #{studyLine} <= 96 THEN 5
         ELSE 6 END
+        ]]>
     </insert>
 
     <update id="updTimer2">

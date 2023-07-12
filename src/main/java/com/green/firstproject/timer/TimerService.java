@@ -1,5 +1,6 @@
 package com.green.firstproject.timer;
 
+import com.green.firstproject.sticker.StickerService;
 import com.green.firstproject.timer.model.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -11,6 +12,7 @@ import java.util.List;
 public class TimerService {
 
     private final TimerMapper MAPPER;
+    private final StickerService service;
 
     public int insTimer(TimerInsDto dto) {
 
