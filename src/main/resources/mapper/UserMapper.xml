@@ -8,7 +8,12 @@
         (#{name},#{email})
     </insert>
 
+<update id="upUserPic">
+    update user
+    set main_pic = #{mainPic}
+    where iuser = #{iuser}
 
+</update>
 
 
 
