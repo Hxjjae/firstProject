@@ -3,9 +3,13 @@
 <mapper namespace="com.green.firstproject.timer.TimerMapper">
     <insert id="insTimer">
         INSERT INTO timer
-        (study_line, iuser)
-        VALUES
-        (#{studyLine}, #{iuser})
+        SET study_line = #{studyLine}
+        , iuser = #{iuser}
+        , isticker = CASE WHEN #{studyLine} <= 24 THEN 2
+        WHEN #{studyLine} <= 48 THEN 3
+        WHEN #{studyLine} <= 72 THEN 4
+        WHEN #{studyLine} <= 96 THEN 5
+        ELSE 6 END
     </insert>
 
     <update id="updTimer2">
