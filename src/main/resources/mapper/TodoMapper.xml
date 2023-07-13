@@ -70,6 +70,7 @@
     and month(created_at) =#{month}
         and year(created_at) = #{year}
         and day(created_at) = #{day}
+        and del_yn = 0;
 
 </select>
 
