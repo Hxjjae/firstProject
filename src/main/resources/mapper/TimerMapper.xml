@@ -53,15 +53,13 @@
 
     <select id="selTimerByDate">
         <![CDATA[
-        SELECT A.itimer ,SUM(A.study_line) sum_study_line
-        , A.dead_line, A.iuser , (CASE WHEN SUM(A.study_line) <= 24 THEN 1
+        SELECT itimer ,SUM(A.study_line) sum_study_line
+        , dead_line, iuser , (CASE WHEN SUM(A.study_line) <= 24 THEN 1
         WHEN SUM(A.study_line) <= 48 THEN 2
         WHEN SUM(A.study_line) <= 72 THEN 3
         WHEN SUM(A.study_line) <= 96 THEN 4
         ELSE 5 END) level
         FROM timer A
-        INNER JOIN sticker B
-        ON A.isticker = B.isticker
         WHERE iuser = #{iuser}
         AND month(dead_line) = #{month}
         GROUP BY iuser , dead_line;
